@@ -5,7 +5,9 @@ namespace App\Http\Controllers\Dpanel;
 use App\Http\Controllers\Controller;
 use App\Models\Brand;
 use App\Models\Category;
+use App\Models\Color;
 use App\Models\Product;
+use App\Models\Size;
 use Illuminate\Http\Request;
 use illuminate\Support\Str;
 
@@ -21,8 +23,11 @@ class ProductController extends Controller
     {
         $brands = Brand::where('is_active', true)->get();
         $categories = Category::where('is_active', true)->get();
+        $colors = Color::where('is_active', true)->get();
+        $sizes = Size::where('is_active', true)->get();
 
-        return view('dpanel.product.create', compact('brands', 'categories'));
+
+        return view('dpanel.product.create', compact('brands', 'categories','colors','sizes'));
     }
 
     public function store(Request $request)
