@@ -24,7 +24,7 @@
 
         <div class="bg-red-100 text-red-100 px-2 py-1 rounded border border-red-500 mb-3">
             <ul>
-                @foreach ($errors->all as $error)
+                @foreach ($errors->all() as $error)
                     <li>{{ $error }}</li>
                 @endforeach
             </ul>
